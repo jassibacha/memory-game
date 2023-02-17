@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+    background-color: #caf0f8;
+    font-family: 'Raleway', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: #fb8500;
+    padding: 10px;
+    .inner {
+        width: 600px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+    }
+    .highscore {
+        background-color: rgb(216 116 1);
+        padding: 5px 15px;
+        border-radius: 5px;
+        color: #fff;
+        font-family: 'Lobster', serif;
+        font-size: 24px;
+        line-height: 34px;
+        border: 1px solid rgb(185 99 0);
+    }
+    .logo {
+        font-family: 'Lobster', sans-serif;
+        color: #fff;
+        font-size: 36px;
+    }
+}
+.container {
+    width: 600px;
+    margin: 20px auto;
+}
+#game {
+    width: 600px;
+    margin: 0 auto;
+}
+.game-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //width: 600px;
+    margin: 20px auto 10px;
+
+    .info {
+        margin: 10px;
+        font-size: 20px;
+        width: 560px;
+        display: flex;
+        font-weight: bold;
+        justify-content: space-between;
+        align-items: center;
+        .timer,
+        .score {
+            width: 150px; // Keep them same width to center the buttons
+        }
+        .score {
+            text-align: right;
+        }
+    }
+    .message {
+        font-size: 18px;
+        margin: 10px auto;
+        background-color: #ffffff7a;
+        padding: 10px;
+        border: 1px solid #00000038;
+        span {
+            font-weight: bold;
+        }
+        &.show {
+            display: block;
+        }
+        &.hide {
+            display: none;
+        }
+    }
+    button {
+        transition: all 0.3s;
+        border: 0 none;
+        font-size: 20px;
+        padding: 8px 15px;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        &.start {
+            background-color: #08b700;
+
+            &:hover {
+                background-color: #0aa702;
+            }
+        }
+        &.reset {
+            background-color: #ffb703;
+            &:hover {
+                background-color: #dd9e00;
+            }
+        }
+        &.disabled {
+            background-color: #616161;
+            pointer-events: none;
+        }
+    }
+}
+
+.game-bottom {
+    .instructions {
+        margin: 10px auto;
+        background-color: #ffffff7a;
+        padding: 10px;
+        border: 1px solid #00000038;
+    }
+}
+
+/* Card flipping CSS repurposed from https://codepen.io/mondal10/pen/WNNEvjV */
+.wrap {
+    width: 130px;
+    height: 130px;
+    margin: 10px;
+    display: inline-block;
+
+    transition: 0.5s;
+    perspective: 600px;
+
+    .card {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        transform-style: preserve-3d;
+        transform-origin: center right;
+        transition: transform 0.8s;
+        &.is-flipped {
+            transform: translateX(-100%) rotateY(-180deg);
+        }
+        &.matched {
+            // matched cant be clicked again
+            pointer-events: none;
+        }
+    }
+
+    .card-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        line-height: 260px;
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+        backface-visibility: hidden;
+        &.front {
+            background-color: #00b4d8;
+            border: 1px solid #00a6c7;
+            transition: all 0.3s;
+            .question {
+                line-height: 80px;
+                width: 100%;
+                font-family: 'Times New Roman', serif;
+                /* height: 100%; */
+                font-size: 80px;
+                padding: 26px 0;
+                pointer-events: none;
+                transition: all 0.3s;
+            }
+            &:hover {
+                background-color: #ffb703;
+                border-color: #d59902;
+                .question {
+                    font-size: 90px;
+                }
+            }
+        }
+
+        &.back {
+            border: 1px solid #000;
+            transform: rotateY(180deg);
+            background-size: cover;
+            background-position: center center;
+        }
+    }
+}
+// .scene {
+//   display: inline-block;
+//   width: 200px;
+//   height: 260px;
+// /*   border: 1px solid #CCC; */
+//   margin: 40px 0;
+//   perspective: 600px;
+// }
+
+/*
+ * Cards | Red = Andy, Blue = Franco Wink, Green = Puss In Boots,
+ * Orange = Kekw, Purple = Squirtle, New = SmileKitty
+ */
+
+.card.andy .card-face.back {
+    background-image: url('https://media4.giphy.com/media/5VKbvrjxpVJCM/giphy.gif?cid=ecf05e471gwpsrk4mbzd6r1mmsrdw50mg9u4wy6xuxtnweru&rid=giphy.gif&ct=g');
+}
+
+.card.franco .card-face.back {
+    background-image: url('https://media4.giphy.com/media/wrBURfbZmqqXu/giphy.gif?cid=ecf05e47eg644mduk6a52vqpcwnv8wonubccedpykkjowqwa&rid=giphy.gif&ct=g');
+    background-size: 180% 120% !important;
+    background-position: -60px 10px;
+}
+
+.card.puss .card-face.back {
+    background-image: url('https://media0.giphy.com/media/O0TdwJm7LKXqE/giphy.gif?cid=ecf05e47xvu59c48omdlkxjzgavrfl4cx4bvu7x1ngar4yzs&rid=giphy.gif&ct=g');
+}
+.card.kekw .card-face.back {
+    background-image: url('https://media3.giphy.com/media/10yXFkBJ0MwGQ0/giphy.gif?cid=ecf05e47aot2qkm90ses9l4v5b3l8twhphdeaup1pt6gz1t4&rid=giphy.gif&ct=g');
+}
+.card.squirtle .card-face.back {
+    background-image: url('https://media1.giphy.com/media/eSwGh3YK54JKU/giphy.gif?cid=790b7611e11931646147f604104d9daaa288a91db1ffdba8&rid=giphy.gif&ct=g');
+}
+.card.smilekitty .card-face.back {
+    background-image: url('https://media.tenor.com/RvquWa8SmxcAAAAd/smile-cat.gif');
+}
+.card.minions .card-face.back {
+    background-image: url('https://media.tenor.com/R2H5w83ycRUAAAAC/minions-cheering.gif');
+}
+.card.pedro .card-face.back {
+    background-image: url('https://media.tenor.com/gaEpIfzxzPEAAAAC/pedro-monkey-puppet.gif');
+    background-position: center top;
+}

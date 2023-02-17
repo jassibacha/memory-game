@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Memory Game!</title>
+        <link rel="stylesheet" href="app.css" />
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <div class="logo">matchy.dev</div>
+                <div class="highscore">High Score: <span>---</span></div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="game-wrap">
+                <div class="game-top">
+                    <div class="info">
+                        <div class="timer">Timer: <span>00</span></div>
+                        <div class="buttons">
+                            <button class="start">Start</button>
+                            <button class="reset">Reset</button>
+                        </div>
+                        <div class="score">Score: <span>---</span></div>
+                    </div>
+                    <div class="message hide"></div>
+                </div>
+
+                <div id="game"></div>
+                <div class="game-bottom">
+                    <div class="instructions">
+                        Instructions: Flip 2 cards and see if they match, if not
+                        they will flip back over. Match all cards to clear!
+                        Score starts at 50, and minuses 1 for every match
+                        attempt.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>
