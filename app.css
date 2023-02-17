@@ -8,12 +8,16 @@ body {
 
 header {
   background-color: #fb8500;
-  padding: 10px;
-}
-header .inner {
   width: 600px;
   margin: 0 auto;
-  padding: 10px;
+  box-shadow: 0 0 0 100vmax #fb8500;
+  -webkit-clip-path: inset(0 -100vmax);
+          clip-path: inset(0 -100vmax);
+}
+header .inner {
+  width: 570px;
+  margin: 0 auto;
+  padding: 10px 15px;
   display: flex;
   justify-content: space-between;
 }
